@@ -33,6 +33,13 @@
     "LICENSE"
   ],
   "scripts": {
-    "validate": "ajv-cli compile -s schema/sponsored-products-bulk-sheet.schema.json --spec=draft2020"
+    "validate:schema": "ajv compile -s schema/sponsored-products-bulk-sheet.schema.json --spec=draft2020 --strict=false",
+    "validate:examples": "node scripts/validate-examples.mjs",
+    "test": "npm run validate:schema && npm run validate:examples"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-cli": "^5.0.0",
+    "ajv-formats": "^3.0.1"
   }
 }
