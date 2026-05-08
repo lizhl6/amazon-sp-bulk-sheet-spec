@@ -4,11 +4,11 @@ This repository ships **documentation, JSON Schema, and sample CSVs** — no exe
 
 ## Reporting a vulnerability
 
-If you discover a security issue, please **do not open a public issue**. Instead:
+If you discover a security issue, please **do not open a public issue**. Use GitHub's private security advisory channel:
 
-- Email: `wellzhang123@gmail.com`
-- Subject prefix: `[security] amazon-sp-bulk-sheet-spec`
-- Or use GitHub's [private security advisory](https://github.com/lizhl6/amazon-sp-bulk-sheet-spec/security/advisories/new)
+→ **[Report a vulnerability](https://github.com/lizhl6/amazon-sp-bulk-sheet-spec/security/advisories/new)**
+
+This routes the report to the maintainer privately, lets us coordinate a fix before public disclosure, and creates an audit trail tied to the eventual CVE (if applicable).
 
 Include:
 
