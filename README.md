@@ -127,4 +127,4 @@ The spec describes Amazon's format. It does not include Amazon copyrighted mater
 
 - Amazon Ads documentation (PDF): https://advertising.amazon.com/help/G3JFQTH3FFKCNXMV
 - Amazon Ads API: https://advertising.amazon.com/API/docs/
-- amztool.me — open-web bulk sheet generator built on this spec
+- **[amztool.me](https://amztool.me)** — open-web bulk sheet generator built on this spec
