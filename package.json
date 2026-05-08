@@ -1,0 +1,38 @@
+{
+  "name": "amazon-sp-bulk-sheet-spec",
+  "version": "2026.5.0",
+  "description": "Machine-readable specification of the Amazon Sponsored Products bulk-operations sheet — column reference, JSON Schema, sample CSVs.",
+  "keywords": [
+    "amazon",
+    "amazon-ads",
+    "amazon-advertising",
+    "sponsored-products",
+    "bulk-sheet",
+    "bulk-operations",
+    "schema",
+    "json-schema",
+    "spec",
+    "amazon-ppc",
+    "ppc",
+    "advertising"
+  ],
+  "homepage": "https://github.com/lizhl6/amazon-sp-bulk-sheet-spec#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lizhl6/amazon-sp-bulk-sheet-spec.git"
+  },
+  "license": "CC0-1.0",
+  "author": "lizhl6 (amztool.me)",
+  "main": "schema/sponsored-products-bulk-sheet.schema.json",
+  "files": [
+    "schema/",
+    "examples/",
+    "SPEC.md",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "validate": "ajv-cli compile -s schema/sponsored-products-bulk-sheet.schema.json --spec=draft2020"
+  }
+}

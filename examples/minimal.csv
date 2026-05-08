@@ -1,0 +1,9 @@
+Product,Entity,Operation,Campaign Id,Ad Group Id,Portfolio Id,Ad Id,Keyword Id,Product Targeting Id,Campaign Name,Ad Group Name,Start Date,End Date,Targeting Type,State,Daily Budget,sku,asin,Ad Group Default Bid,Bid,Keyword Text,Match Type,Bidding Strategy,Placement,Percentage,Product Targeting Expression,Audience Id,Shopper Cohort Percentage,Shopper Cohort Type,Sites
+Sponsored Products,Campaign,Create,,,,,,,Wireless Mouse - Hero,,20260507,,Manual,enabled,25.00,,,,,,,Dynamic bids - up and down,,,,,,,
+Sponsored Products,Bidding Adjustment,Create,,,,,,,Wireless Mouse - Hero,,,,,,,,,,,,,,placement top,50,,,,,
+Sponsored Products,Ad Group,Create,,,,,,,Wireless Mouse - Hero,Hero ASIN - Exact,,,,enabled,,,,0.85,,,,,,,,,,,
+Sponsored Products,Product Ad,Create,,,,,,,Wireless Mouse - Hero,Hero ASIN - Exact,,,,enabled,,WM-BLK-001,,,,,,,,,,,,,
+Sponsored Products,Keyword,Create,,,,,,,Wireless Mouse - Hero,Hero ASIN - Exact,,,,enabled,,,,,0.85,wireless ergonomic mouse,exact,,,,,,,,
+Sponsored Products,Keyword,Create,,,,,,,Wireless Mouse - Hero,Hero ASIN - Exact,,,,enabled,,,,,0.85,best mouse for programmers,phrase,,,,,,,,
+Sponsored Products,Keyword,Create,,,,,,,Wireless Mouse - Hero,Hero ASIN - Exact,,,,enabled,,,,,0.85,vertical mouse rsi,phrase,,,,,,,,
+Sponsored Products,Negative Keyword,Create,,,,,,,Wireless Mouse - Hero,Hero ASIN - Exact,,,,enabled,,,,,,gaming mouse,negativeExact,,,,,,,,

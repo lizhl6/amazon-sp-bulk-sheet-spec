@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lizhl6/amazon-sp-bulk-sheet-spec/blob/main/schema/sponsored-products-bulk-sheet.schema.json",
+  "title": "Amazon Sponsored Products Bulk Sheet Row",
+  "description": "JSON Schema for one row of an Amazon Sponsored Products bulk-operations sheet (.xlsx / .csv). Schema version 2026.05.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["Product", "Entity", "Operation"],
+  "properties": {
+    "Product": {
+      "type": "string",
+      "const": "Sponsored Products"
+    },
+    "Entity": {
+      "type": "string",
+      "enum": [
+        "Campaign",
+        "Bidding Adjustment",
+        "Ad Group",
+        "Product Ad",
+        "Keyword",
+        "Product Targeting",
+        "Negative Keyword",
+        "Campaign Negative Keyword",
+        "Negative Product Targeting"
+      ]
+    },
+    "Operation": {
+      "type": "string",
+      "enum": ["Create", "Update", "Archive"]
+    },
+    "Campaign Id": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]*$"
+    },
+    "Ad Group Id": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]*$"
+    },
+    "Portfolio Id": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]*$"
+    },
+    "Ad Id": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]*$"
+    },
+    "Keyword Id": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]*$"
+    },
+    "Product Targeting Id": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]*$"
+    },
+    "Campaign Name": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[^\\s].*$"
+    },
+    "Ad Group Name": {
+      "type": ["string", "null"],
+      "maxLength": 128
+    },
+    "Start Date": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{8}$",
+      "description": "YYYYMMDD format, no separators"
+    },
+    "End Date": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{8}$|^$"
+    },
+    "Targeting Type": {
+      "type": ["string", "null"],
+      "enum": ["Manual", "Auto", null, ""]
+    },
+    "State": {
+      "type": ["string", "null"],
+      "enum": ["enabled", "paused", "archived", null, ""]
+    },
+    "Daily Budget": {
+      "type": ["number", "null"],
+      "minimum": 1.0,
+      "maximum": 1000000.0,
+      "multipleOf": 0.01
+    },
+    "sku": {
+      "type": ["string", "null"],
+      "maxLength": 64
+    },
+    "asin": {
+      "type": ["string", "null"],
+      "pattern": "^B0[A-Z0-9]{8}$|^$"
+    },
+    "Ad Group Default Bid": {
+      "type": ["number", "null"],
+      "minimum": 0.02,
+      "maximum": 1000.0,
+      "multipleOf": 0.01
+    },
+    "Bid": {
+      "type": ["number", "null"],
+      "minimum": 0.02,
+      "maximum": 1000.0,
+      "multipleOf": 0.01
+    },
+    "Keyword Text": {
+      "type": ["string", "null"],
+      "maxLength": 256
+    },
+    "Match Type": {
+      "type": ["string", "null"],
+      "enum": ["exact", "phrase", "broad", "negativeExact", "negativePhrase", null, ""]
+    },
+    "Bidding Strategy": {
+      "type": ["string", "null"],
+      "enum": [
+        "Dynamic bids - down only",
+        "Dynamic bids - up and down",
+        "Fixed bids",
+        null,
+        ""
+      ]
+    },
+    "Placement": {
+      "type": ["string", "null"],
+      "enum": [
+        "placement top",
+        "placement rest of search",
+        "placement product page",
+        null,
+        ""
+      ]
+    },
+    "Percentage": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 900
+    },
+    "Product Targeting Expression": {
+      "type": ["string", "null"],
+      "maxLength": 1000
+    },
+    "Audience Id": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]*$"
+    },
+    "Shopper Cohort Percentage": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "Shopper Cohort Type": {
+      "type": ["string", "null"],
+      "enum": [
+        "BRAND_FOLLOWERS",
+        "REPEAT_CUSTOMERS",
+        "HIGH_VALUE_CUSTOMERS",
+        "RECENT_CUSTOMERS",
+        "CART_ABANDONERS",
+        null,
+        ""
+      ]
+    },
+    "Sites": {
+      "type": ["string", "null"]
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "Entity": { "const": "Campaign" } } },
+      "then": {
+        "required": ["Campaign Name"],
+        "properties": {
+          "Operation": {
+            "anyOf": [
+              { "const": "Update" },
+              { "const": "Archive" },
+              {
+                "const": "Create",
+                "description": "Create requires Start Date, Targeting Type, State, Daily Budget"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "Entity": { "const": "Keyword" } } },
+      "then": {
+        "required": ["Campaign Name", "Ad Group Name", "Keyword Text", "Match Type"],
+        "properties": {
+          "Match Type": {
+            "enum": ["exact", "phrase", "broad"]
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "Entity": { "const": "Negative Keyword" } } },
+      "then": {
+        "required": ["Campaign Name", "Ad Group Name", "Keyword Text", "Match Type"],
+        "properties": {
+          "Match Type": {
+            "enum": ["negativeExact", "negativePhrase"]
+          },
+          "Bid": { "type": "null" }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "Entity": { "const": "Campaign Negative Keyword" } } },
+      "then": {
+        "required": ["Campaign Name", "Keyword Text", "Match Type"],
+        "properties": {
+          "Match Type": {
+            "enum": ["negativeExact", "negativePhrase"]
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "Entity": { "const": "Product Ad" } } },
+      "then": {
+        "required": ["Campaign Name", "Ad Group Name"],
+        "anyOf": [
+          { "required": ["sku"], "properties": { "sku": { "type": "string", "minLength": 1 } } },
+          { "required": ["asin"], "properties": { "asin": { "type": "string", "minLength": 10 } } }
+        ]
+      }
+    },
+    {
+      "if": { "properties": { "Entity": { "const": "Bidding Adjustment" } } },
+      "then": {
+        "required": ["Campaign Name", "Placement", "Percentage"]
+      }
+    }
+  ]
+}
