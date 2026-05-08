@@ -2,9 +2,11 @@
 
 > A machine-readable specification of the column schema, entity types, and value constraints for the Amazon Sponsored Products bulk-operations sheet (`.xlsx` / `.csv`).
 
+[![CI](https://github.com/lizhl6/amazon-sp-bulk-sheet-spec/actions/workflows/ci.yml/badge.svg)](https://github.com/lizhl6/amazon-sp-bulk-sheet-spec/actions/workflows/ci.yml)
 [![License: CC0-1.0](https://img.shields.io/badge/license-CC0_1.0-lightgrey.svg)](LICENSE)
-![Status](https://img.shields.io/badge/status-actively_maintained-brightgreen)
 ![Schema version](https://img.shields.io/badge/schema-2026.05-blue)
+[![GitHub Repo stars](https://img.shields.io/github/stars/lizhl6/amazon-sp-bulk-sheet-spec?style=social)](https://github.com/lizhl6/amazon-sp-bulk-sheet-spec/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/lizhl6/amazon-sp-bulk-sheet-spec?style=social)](https://github.com/lizhl6/amazon-sp-bulk-sheet-spec/network/members)
 
 Amazon publishes the bulk-sheet format as a PDF help-center article and a downloadable Excel template. There's no machine-readable spec, no JSON Schema, no programmatic validator. This repo fills that gap.
 
