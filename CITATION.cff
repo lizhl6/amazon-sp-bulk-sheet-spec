@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: "Amazon Sponsored Products Bulk Sheet Spec"
+message: "If you reference or build on this spec, please cite it."
+type: dataset
+authors:
+  - given-names: William
+    family-names: Zhang
+    email: wellzhang123@gmail.com
+    website: "https://amztool.me"
+abstract: "A machine-readable specification of the column schema, entity types, and value constraints for the Amazon Sponsored Products bulk-operations sheet (.xlsx / .csv) — fills the gap left by Amazon's PDF-only documentation. Includes JSON Schema with conditional per-entity validation and example sheets covering all nine entity types."
+keywords:
+  - amazon-ads
+  - amazon-advertising
+  - sponsored-products
+  - bulk-sheet
+  - bulk-operations
+  - schema
+  - json-schema
+  - amazon-ppc
+  - csv
+  - data-format
+  - spec
+license: CC0-1.0
+repository-code: "https://github.com/lizhl6/amazon-sp-bulk-sheet-spec"
+url: "https://github.com/lizhl6/amazon-sp-bulk-sheet-spec"
+version: "2026.05"
+date-released: "2026-05-08"
